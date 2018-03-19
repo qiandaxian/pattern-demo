@@ -15,15 +15,14 @@ public class WebCommandProcessor {
     }
 
     public void doProcess(WebCommand webCommand){
-
         this.setCommandState(getCommandStateByWebCommand(webCommand));
-
         commandState.handle(webCommand);
     }
 
     private CommandState getCommandStateByWebCommand(WebCommand webCommand)  {
         CommandState commandState = null;
         try {
+            //如果状态实例由spring容器管理，可以用ApplicationContext.getBean(class)，获取状态实例。
             Class a =Class.forName("pattern.state."+webCommand.getCommand());
             commandState =  (CommandState)a.newInstance();
         } catch (InstantiationException e) {
@@ -40,7 +39,6 @@ public class WebCommandProcessor {
         WebCommand webCommand = new WebCommand();
         webCommand.setCommand("DeviceUpdateCommand");
         webCommand.setParam("设备更新参数");
-
 
         WebCommandProcessor webCommandProcessor = new WebCommandProcessor();
         webCommandProcessor.doProcess(webCommand);

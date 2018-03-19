@@ -1,5 +1,8 @@
 package pattern.state;
 
+/**
+ * 命令对象
+ */
 public class WebCommand {
     private String command;
     private String param;
