@@ -3,7 +3,7 @@ package pattern.state;
 /**
  * 命令对象
  */
-public class WebCommand {
+public class WebCommandDTO {
     private String command;
     private String param;
 

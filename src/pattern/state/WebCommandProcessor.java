@@ -14,12 +14,12 @@ public class WebCommandProcessor {
         this.commandState = commandState;
     }
 
-    public void doProcess(WebCommand webCommand){
+    public void doProcess(WebCommandDTO webCommand){
         this.setCommandState(getCommandStateByWebCommand(webCommand));
         commandState.handle(webCommand);
     }
 
-    private CommandState getCommandStateByWebCommand(WebCommand webCommand)  {
+    private CommandState getCommandStateByWebCommand(WebCommandDTO webCommand)  {
         CommandState commandState = null;
         try {
             //如果状态实例由spring容器管理，可以用ApplicationContext.getBean(class)，获取状态实例。
@@ -36,7 +36,7 @@ public class WebCommandProcessor {
     }
 
     public static void main(String[] args) {
-        WebCommand webCommand = new WebCommand();
+        WebCommandDTO webCommand = new WebCommandDTO();
         webCommand.setCommand("DeviceUpdateCommand");
         webCommand.setParam("设备更新参数");
 
