@@ -1,7 +1,7 @@
 # 状态模式应用DEMO
 ### 业务场景描述
 web服务端通过mq下发JSON命令到中间件,json格式：
-``` json
+```
  {
    “command”：“DeviceUpdate”,
    “param”：“{...}”
